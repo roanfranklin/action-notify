@@ -3,7 +3,7 @@
 set -e
 : ${TELEGRAM_DISABLE_NOTIFICATION:=true} ${TYPE_MESSAGE:=information}
 
-sh -c "echo ${TYPE_MESSAGE}"
+sh -c "echo ${TYPE_MESSAGE^^}"
 
 case "${TYPE_MESSAGE^^}" in
     WARNING) TYPE_MESSAGE="[ A T E N Ç Ã O ]\n" ;;
@@ -12,6 +12,8 @@ case "${TYPE_MESSAGE^^}" in
 esac
 
 TXT_MSG="${TYPE_MESSAGE}"
+
+sh -c "echo ${TXT_MSG}"
 
 if [ ! -z "${TEXT_MESSAGE}" ]; then
     TXT_MSG="{TXT_MSG}\nMessage: ${TEXT_MESSAGE}"
