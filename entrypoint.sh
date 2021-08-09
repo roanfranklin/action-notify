@@ -37,7 +37,8 @@ if [ ! -z "${NAMESPACE}" ]; then
     TXT_MSG="{TXT_MSG}\nNAMESPACE: ${NAMESPACE}"
 fi
 
-sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TXT_MSG}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
+#sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TXT_MSG}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
+sh -c "echo \"${TXT_MSG}\n\nURL: https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
 
 #if [[ ! -z "$DISCORD_WEBHOOK_ID" ] && [ ! -z "$DISCORD_WEBHOOK_TOKEN" ]]; then
 #sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TXT_MSG}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
