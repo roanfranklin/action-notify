@@ -4,15 +4,9 @@ set -e
 : ${TELEGRAM_DISABLE_NOTIFICATION:=true} ${TYPE_MESSAGE:=information}
 
 case "${TYPE_MESSAGE^^}" in
-    'WARNING') TYPE_MESSAGE="[ A T E N Ç Ã O ]\n"
-               COLOR_MESSAGE=""
-               ;;
-    'DANGER') TYPE_MESSAGE="[ P E R I G O ]\n"
-              COLOR_MESSAGE=""
-              ;;
-    *) TYPE_MESSAGE="[ I N F O R M A Ç Ã O ]\n" 
-       COLOR_MESSAGE=""
-       ;;
+    WARNING) TYPE_MESSAGE="[ A T E N Ç Ã O ]\n" ;;
+    DANGER) TYPE_MESSAGE="[ P E R I G O ]\n" ;;
+    *) TYPE_MESSAGE="[ I N F O R M A Ç Ã O ]\n" ;;
 esac
 
 TXT_MSG="${TYPE_MESSAGE}"
