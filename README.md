@@ -23,8 +23,7 @@ jobs:
         TELEGRAM_WEBHOOK_TOKEN: ${{ secrets.TELEGRAM_WEBHOOK_TOKEN }}
         TELEGRAM_DISABLE_NOTIFICATION: true
         SLACK_WEBHOOK_ID: ${{ secrets.SLACK_WEBHOOK_ID }}
-      with:
-        args: |
+        TEXT_MESSAGE: |
           A T E N Ç Ã O #
 
           Usuário: ${{ github.actor }}
@@ -44,8 +43,7 @@ jobs:
       env:
         DISCORD_WEBHOOK_ID: ${{ secrets.DISCORD_WEBHOOK_ID }}
         DISCORD_WEBHOOK_TOKEN: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-      with:
-        args: |
+        TEXT_MESSAGE: |
           A T E N Ç Ã O #
 
           Usuário: ${{ github.actor }}
@@ -65,8 +63,7 @@ jobs:
       env:
         TELEGRAM_WEBHOOK_ID: ${{ secrets.TELEGRAM_WEBHOOK_ID }}
         TELEGRAM_WEBHOOK_TOKEN: ${{ secrets.TELEGRAM_WEBHOOK_TOKEN }}
-      with:
-        args: |
+        TEXT_MESSAGE: |
           A T E N Ç Ã O #
 
           Usuário: ${{ github.actor }}
@@ -85,8 +82,7 @@ jobs:
       uses: roanfranklin/action-notify@master
       env:
         SLACK_WEBHOOK_ID: ${{ secrets.SLACK_WEBHOOK_ID }}
-      with:
-        args: |
+        TEXT_MESSAGE: |
           A T E N Ç Ã O #
 
           Usuário: ${{ github.actor }}
