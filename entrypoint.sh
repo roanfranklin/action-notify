@@ -16,3 +16,4 @@ if [ ! -z "$SLACK_WEBHOOK_ID" ]; then
 fi
 
 #    sh -c "curl --silent --show-error --fail $*"
+
