@@ -12,23 +12,23 @@ esac
 TXT_MSG="${TYPE_MESSAGE}"
 
 if [ ! -z "${TEXT_MESSAGE}" ]; then
-    TXT_MSG="{TXT_MSG}\nMessage: ${TEXT_MESSAGE}"
+    TXT_MSG="${TXT_MSG}\nMessage: ${TEXT_MESSAGE}"
 fi
 
 if [ ! -z "${ACTOR}" ]; then
-    TXT_MSG="{TXT_MSG}\nActor: ${ACTOR}"
+    TXT_MSG="${TXT_MSG}\nActor: ${ACTOR}"
 fi
 
 if [ ! -z "${REPOSITORY}" ]; then
-    TXT_MSG="{TXT_MSG}\nRepository: ${REPOSITORY}"
+    TXT_MSG="${TXT_MSG}\nRepository: ${REPOSITORY}"
 fi
 
 if [ ! -z "${REFERENCE}" ]; then
-    TXT_MSG="{TXT_MSG}\nReference: ${REFERENCE}"
+    TXT_MSG="${TXT_MSG}\nReference: ${REFERENCE}"
 fi
 
 if [ ! -z "${NAMESPACE}" ]; then
-    TXT_MSG="{TXT_MSG}\nNAMESPACE: ${NAMESPACE}"
+    TXT_MSG="${TXT_MSG}\nNamespace: ${NAMESPACE}"
 fi
 
 sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TXT_MSG}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
