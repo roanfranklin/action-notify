@@ -3,6 +3,8 @@
 set -e
 : ${TELEGRAM_DISABLE_NOTIFICATION:=true} ${TYPE_MESSAGE:=information}
 
+sh -c "echo ${TYPE_MESSAGE}"
+
 case "${TYPE_MESSAGE^^}" in
     WARNING) TYPE_MESSAGE="[ A T E N Ç Ã O ]\n" ;;
     DANGER) TYPE_MESSAGE="[ P E R I G O ]\n" ;;
