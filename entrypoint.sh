@@ -9,10 +9,10 @@ else
     TXT_MSG='msg erro'
 fi
 
-sh -c "echo \"curl --silent --show-error --fail -X POST --data '{\"content\": ${TXT_MSG}}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\"\""
+sh -c "echo \"curl --silent --show-error --fail -X POST --data '{\"content\": \"${TXT_MSG}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\"\""
 
 #if [[ ! -z "$DISCORD_WEBHOOK_ID" ] && [ ! -z "$DISCORD_WEBHOOK_TOKEN" ]]; then
-#sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TEXT_MESSAGE}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
+#sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TXT_MSG}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
 #fi
 
 #if [[ ! -z "$TELEGRAM_WEBHOOK_ID" ] && [ ! -z "$TELEGRAM_WEBHOOK_TOKEN" ]]; then
