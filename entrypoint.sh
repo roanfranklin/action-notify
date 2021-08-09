@@ -1,12 +1,40 @@
 #!/bin/sh
 
 set -e
-: ${TELEGRAM_DISABLE_NOTIFICATION:=true}
+: ${TELEGRAM_DISABLE_NOTIFICATION:=true} ${TYPE_MESSAGE:=information}
+
+case "${TYPE_MESSAGE^^}" in
+    'WARNING') TYPE_MESSAGE="[ A T E N Ç Ã O ]\n" ;;
+               COLOR_MESSAGE=""
+               ;;
+    'DANGER') TYPE_MESSAGE="[ P E R I G O ]\n" ;;
+              COLOR_MESSAGE=""
+              ;;
+    *) TYPE_MESSAGE="[ I N F O R M A Ç Ã O ]\n" 
+       COLOR_MESSAGE=""
+       ;;
+esac
+
+TXT_MSG="${TYPE_MESSAGE}"
 
 if [ ! -z "${TEXT_MESSAGE}" ]; then
-    TXT_MSG="${TEXT_MESSAGE}"
-else
-    TXT_MSG='msg erro'
+    TXT_MSG="{TXT_MSG}\nMessage: ${TEXT_MESSAGE}"
+fi
+
+if [ ! -z "${ACTOR}" ]; then
+    TXT_MSG="{TXT_MSG}\nActor: ${ACTOR}"
+fi
+
+if [ ! -z "${REPOSITORY}" ]; then
+    TXT_MSG="{TXT_MSG}\nRepository: ${REPOSITORY}"
+fi
+
+if [ ! -z "${REFERENCE}" ]; then
+    TXT_MSG="{TXT_MSG}\nReference: ${REFERENCE}"
+fi
+
+if [ ! -z "${NAMESPACE}" ]; then
+    TXT_MSG="{TXT_MSG}\nNAMESPACE: ${NAMESPACE}"
 fi
 
 sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TXT_MSG}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
