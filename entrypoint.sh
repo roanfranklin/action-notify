@@ -3,9 +3,9 @@
 set -e
 : #{TELEGRAM_DISABLE_NOTIFICATION:=true}
 
-sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TEXT_MESSAGE}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
+#sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TEXT_MESSAGE}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
 
-#sh -c "echo -e \"${TEXT_MESSAGE}\nURL: https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
+sh -c "echo -e \"${TEXT_MESSAGE}\nURL: https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
 
 #if [[ ! -z "$DISCORD_WEBHOOK_ID" ] && [ ! -z "$DISCORD_WEBHOOK_TOKEN" ]]; then
 #sh -c "curl --silent --show-error --fail -X POST --data '{\"content\": \"${TEXT_MESSAGE}\"}' --header \"Content-Type:application/json\" \"https://discord.com/api/webhooks/${DISCORD_WEBHOOK_ID}/${DISCORD_WEBHOOK_TOKEN}\""
