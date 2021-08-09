@@ -3,9 +3,7 @@
 set -e
 : ${TELEGRAM_DISABLE_NOTIFICATION:=true} ${TYPE_MESSAGE:=information}
 
-sh -c "echo ${TYPE_MESSAGE^^}"
-
-case "${TYPE_MESSAGE^^}" in
+case "$(echo ${TYPE_MESSAGE} | tr '[:lower:]' '[:upper:]')" in
     WARNING) TYPE_MESSAGE="[ A T E N Ç Ã O ]\n" ;;
     DANGER) TYPE_MESSAGE="[ P E R I G O ]\n" ;;
     *) TYPE_MESSAGE="[ I N F O R M A Ç Ã O ]\n" ;;
