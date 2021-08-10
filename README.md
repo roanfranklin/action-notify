@@ -1,11 +1,13 @@
-# GitHub Action for notify in curl
+# GitHub Action for Notify
 
-Usando o comando curl CLI para notificações via Discord, Telegram e Slack ao executar o GitHub Actions.
-
-*OBS.: Não usar a vírgula no **args**, pois ocorrerá erros.*
+Python para notificações via Discord, Telegram e Slack ao executar o GitHub Actions.
 
 
 ## Usage
+
+### URL Webhook Discord
+https://discord.com/api/webhooks/<WEBHOOK_ID>/<WEBHOOK_TOKEN>
+
 
 ### GitHub Actions
 ```
@@ -16,87 +18,31 @@ jobs:
     steps:
     - name: notify all in curl
       uses: roanfranklin/action-notify@master
-      env:
-        DISCORD_WEBHOOK_ID: ${{ secrets.DISCORD_WEBHOOK_ID }}
-        DISCORD_WEBHOOK_TOKEN: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-        TELEGRAM_WEBHOOK_ID: ${{ secrets.TELEGRAM_WEBHOOK_ID }}
-        TELEGRAM_WEBHOOK_TOKEN: ${{ secrets.TELEGRAM_WEBHOOK_TOKEN }}
-        TELEGRAM_DISABLE_NOTIFICATION: true
-        SLACK_WEBHOOK_ID: ${{ secrets.SLACK_WEBHOOK_ID }}
-        TEXT_MESSAGE: |
-          A T E N Ç Ã O #
-
-          Usuário: ${{ github.actor }}
-          Repositório: ${{ github.repository }}
-          Referência: ${{ github.ref }}
-          Namespace: PRODUTION
+      with:
+        --discord_webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+        --discord_webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+        --text: "Commit realizado!"
+        --type: warning
+        --actor: ${{ github.actor }}
+        --repository: ${{ github.repository }}
+        --branch: ${{ github.branch }}
+        --reference: ${{ github.ref }}
+        --namespace: PRODUTION
 ```
-
-```
-on: push
-jobs:
-  notify-discord:
-    runs-on: ubuntu-latest
-    steps:
-    - name: notify discord in curl
-      uses: roanfranklin/action-notify@master
-      env:
-        DISCORD_WEBHOOK_ID: ${{ secrets.DISCORD_WEBHOOK_ID }}
-        DISCORD_WEBHOOK_TOKEN: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-        TEXT_MESSAGE: |
-          A T E N Ç Ã O #
-
-          Usuário: ${{ github.actor }}
-          Repositório: ${{ github.repository }}
-          Referência: ${{ github.ref }}
-          Namespace: PRODUTION
-```
-
-```
-on: push
-jobs:
-  notify-telegram:
-    runs-on: ubuntu-latest
-    steps:
-    - name: notify telegram in curl
-      uses: roanfranklin/action-notify@master
-      env:
-        TELEGRAM_WEBHOOK_ID: ${{ secrets.TELEGRAM_WEBHOOK_ID }}
-        TELEGRAM_WEBHOOK_TOKEN: ${{ secrets.TELEGRAM_WEBHOOK_TOKEN }}
-        TEXT_MESSAGE: |
-          A T E N Ç Ã O #
-
-          Usuário: ${{ github.actor }}
-          Repositório: ${{ github.repository }}
-          Referência: ${{ github.ref }}
-          Namespace: PRODUTION
-```
-
-```
-on: push
-jobs:
-  notify-slack:
-    runs-on: ubuntu-latest
-    steps:
-    - name: notify slack in curl
-      uses: roanfranklin/action-notify@master
-      env:
-        SLACK_WEBHOOK_ID: ${{ secrets.SLACK_WEBHOOK_ID }}
-        TEXT_MESSAGE: |
-          A T E N Ç Ã O #
-
-          Usuário: ${{ github.actor }}
-          Repositório: ${{ github.repository }}
-          Referência: ${{ github.ref }}
-          Namespace: PRODUTION
-```
-**OBS.: Ainda não testado a notificação para o slack.**
 
 
 ### Docker
 ```
 docker run --rm $(docker build -q .) \
-  https://httpbin.org/get
+  --discord_webhook_id="0987654321" \
+  --discord_webhook_token="tokenTOKENt0k3Ntok3nT0keN-t_0K3nT0KEN" \
+  --text="Isso é um teste" \
+  --type="warning" \
+  --actor="Roan Franklin" \
+  --repository="roanfranklin/simplewhale" \
+  --branch="develop" \
+  --reference="tag/test" \
+  --namespace="PRD"
 ```
 
 
