@@ -3,6 +3,8 @@ import requests
 import pytz
 from datetime import datetime
 
+
+
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('--type', type=str, help='Example Positional Argument')
 parser.add_argument('--json', type=str, help='Example Positional Argument')
@@ -24,6 +26,7 @@ red = 16711680
 green = 65280
 
 
+
 if args.type is None:
     setcolor = green
 elif args.type.upper() == "WARNING" or args.type.upper() == "ALERT":
@@ -34,6 +37,7 @@ elif args.type.upper() == "INFORMATION" or args.type.upper() == "INFO":
     setcolor = blue
 else:
     setcolor = green
+
 
 
 url = "https://discord.com/api/webhooks/{0}/{1}".format(args.discord_webhook_id, args.discord_webhook_token)
