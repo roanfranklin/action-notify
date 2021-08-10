@@ -19,15 +19,16 @@ jobs:
     - name: notify all in curl
       uses: roanfranklin/action-notify@master
       with:
-        --discord_webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
-        --discord_webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-        --text: "Commit realizado!"
-        --type: warning
-        --actor: ${{ github.actor }}
-        --repository: ${{ github.repository }}
-        --branch: ${{ github.branch }}
-        --reference: ${{ github.ref }}
-        --namespace: PRODUTION
+        args:
+          --discord_webhook_id="${{ secrets.DISCORD_WEBHOOK_ID }}"
+          --discord_webhook_token="${{ secrets.DISCORD_WEBHOOK_TOKEN }}"
+          --text="Commit realizado!"
+          --type="warning"
+          --actor="${{ github.actor }}"
+          --repository="${{ github.repository }}"
+          --branch="${{ github.head_ref }}"
+          --reference="${{ github.sha }}"
+          --namespace="PRODUTION"
 ```
 
 

@@ -11,6 +11,7 @@ LABEL "maintainer"="Roan Franklin <roanfranklin@gmail.com>"
 
 RUN pip3 install requests pytz
 
-ADD entrypoint.py . 
+
+ADD entrypoint.py .
 
 ENTRYPOINT ["python","entrypoint.py"]
