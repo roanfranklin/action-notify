@@ -5,18 +5,18 @@ from datetime import datetime
 
 
 parser = argparse.ArgumentParser(description='Process some integers.')
-parser.add_argument('type', type=str, required=True, help='Example Positional Argument')
-parser.add_argument('text', type=str, required=True, help='Example Positional Argument')
-parser.add_argument('actor', type=str, required=True, help='Example Positional Argument')
-parser.add_argument('repository', type=str, required=True, help='Example Optional Argument')
-parser.add_argument('branch', type=str, required=True, help='Example Optional Argument')
-parser.add_argument('reference', type=str, required=True, help='Example Positional Argument')
-parser.add_argument('namespace', type=str, required=True, help='Example Positional Argument')
+parser.add_argument('-type', type=str, required=True, help='Example Positional Argument')
+parser.add_argument('-text', type=str, required=True, help='Example Positional Argument')
+parser.add_argument('-actor', type=str, required=True, help='Example Positional Argument')
+parser.add_argument('-repository', type=str, required=True, help='Example Optional Argument')
+parser.add_argument('-branch', type=str, required=True, help='Example Optional Argument')
+parser.add_argument('-reference', type=str, required=True, help='Example Positional Argument')
+parser.add_argument('-namespace', type=str, required=True, help='Example Positional Argument')
 
-parser.add_argument('json', type=str, help='Example Positional Argument')
+parser.add_argument('-json', type=str, help='Example Positional Argument')
 
-parser.add_argument('discord_webhook_id', type=str, help='Example Positional Argument')
-parser.add_argument('discord_webhook_token', type=str, help='Example Positional Argument')
+parser.add_argument('-discord_webhook_id', type=str, help='Example Positional Argument')
+parser.add_argument('-discord_webhook_token', type=str, help='Example Positional Argument')
 
 args = parser.parse_args()
 
