@@ -4,27 +4,26 @@ import pytz
 from datetime import datetime
 
 
-
 parser = argparse.ArgumentParser(description='Process some integers.')
-parser.add_argument('--type', type=str, help='Example Positional Argument')
-parser.add_argument('--json', type=str, help='Example Positional Argument')
-parser.add_argument('--text', type=str, help='Example Positional Argument')
-parser.add_argument('--actor', type=str, help='Example Positional Argument')
-parser.add_argument('--repository', type=str , help='Example Optional Argument')
-parser.add_argument('--branch', type=str , help='Example Optional Argument')
-parser.add_argument('--reference', type=str, help='Example Positional Argument')
-parser.add_argument('--namespace', type=str, help='Example Positional Argument')
+parser.add_argument('type', type=str, help='Example Positional Argument')
+parser.add_argument('json', type=str, help='Example Positional Argument')
+parser.add_argument('rext', type=str, help='Example Positional Argument')
+parser.add_argument('actor', type=str, help='Example Positional Argument')
+parser.add_argument('repository', type=str , help='Example Optional Argument')
+parser.add_argument('branch', type=str , help='Example Optional Argument')
+parser.add_argument('reference', type=str, help='Example Positional Argument')
+parser.add_argument('namespace', type=str, help='Example Positional Argument')
 
-parser.add_argument('--discord_webhook_id', type=str, help='Example Positional Argument')
-parser.add_argument('--discord_webhook_token', type=str, help='Example Positional Argument')
+parser.add_argument('discord_webhook_id', type=str, help='Example Positional Argument')
+parser.add_argument('discord_webhook_token', type=str, help='Example Positional Argument')
 
 args = parser.parse_args()
+
 
 yellow = 15258703
 blue = 3447003
 red = 16711680
 green = 65280
-
 
 
 if args.type is None:
@@ -39,8 +38,8 @@ else:
     setcolor = green
 
 
-
 url = "https://discord.com/api/webhooks/{0}/{1}".format(args.discord_webhook_id, args.discord_webhook_token)
+
 
 embed = {
     "title": args.repository,
@@ -82,6 +81,7 @@ data = {
 headers = {
     "Content-Type": "application/json"
 }
+
 
 result = requests.post(url, json=data, headers=headers)
 if 200 <= result.status_code < 300:
