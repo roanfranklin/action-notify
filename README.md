@@ -20,30 +20,30 @@ jobs:
       uses: roanfranklin/action-notify@master
       with:
         args:
-          --discord_webhook_id="${{ secrets.DISCORD_WEBHOOK_ID }}"
-          --discord_webhook_token="${{ secrets.DISCORD_WEBHOOK_TOKEN }}"
-          --text="Commit realizado!"
-          --type="warning"
-          --actor="${{ github.actor }}"
-          --repository="${{ github.repository }}"
-          --branch="${{ github.head_ref }}"
-          --reference="${{ github.sha }}"
-          --namespace="PRODUTION"
+          discord_webhook_id="${{ secrets.DISCORD_WEBHOOK_ID }}"
+          discord_webhook_token="${{ secrets.DISCORD_WEBHOOK_TOKEN }}"
+          text="Commit realizado!"
+          type="warning"
+          actor="${{ github.actor }}"
+          repository="${{ github.repository }}"
+          branch="${{ github.head_ref }}"
+          reference="${{ github.sha }}"
+          namespace="PRODUTION"
 ```
 
 
 ### Docker
 ```
 docker run --rm $(docker build -q .) \
-  --discord_webhook_id="0987654321" \
-  --discord_webhook_token="tokenTOKENt0k3Ntok3nT0keN-t_0K3nT0KEN" \
-  --text="Isso é um teste" \
-  --type="warning" \
-  --actor="Roan Franklin" \
-  --repository="roanfranklin/simplewhale" \
-  --branch="develop" \
-  --reference="tag/test" \
-  --namespace="PRD"
+  discord_webhook_id="0987654321" \
+  discord_webhook_token="tokenTOKENt0k3Ntok3nT0keN-t_0K3nT0KEN" \
+  text="Isso é um teste" \
+  type="warning" \
+  actor="Roan Franklin" \
+  repository="roanfranklin/simplewhale" \
+  branch="develop" \
+  reference="tag/test" \
+  namespace="PRD"
 ```
 
 
